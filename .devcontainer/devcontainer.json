@@ -12,18 +12,10 @@
 	// people have access to the same machine...
 	"mounts": [
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
-	],
+	]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		"ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": "true",
-			      "installOhMyZsh": "false",
-			      "installOhMyZshConfig": "false",
-            "username": "vscode",
-            "upgradePackages": "true"
-        }
-	}
+	// "features": {}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

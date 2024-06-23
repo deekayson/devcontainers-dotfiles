@@ -1,0 +1,8 @@
+alias ll="ls -la"
+alias mkdir="mkdir -pv"
+alias ..="cd .."
+
+mkcd ()
+{
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
