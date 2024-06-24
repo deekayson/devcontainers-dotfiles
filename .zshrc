@@ -1,3 +1,8 @@
+#!/bin/zsh
+
+# ensures $SHELL is also set to zsh
+export SHELL=/bin/zsh
+
 # Check if .aliases exists and sources it
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
