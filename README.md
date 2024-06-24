@@ -16,4 +16,11 @@ A `~/.aliases.local` file can be used to add your own project specific aliases.
 
 Just copy the URL of this repository inside the dotfiles.Repository setting inside your VSCode. VSCode should take care of the rest.
 
+Just copy the following lines to your user settings json:
+```
+{
+    "remote.containers.dotfiles.repository": "https://github.com/matheusfvesco/devcontainers-dotfiles.git",
+    "remote.containers.dotfiles.targetPath": "~/dotfiles",
+}
+```
 ![VSCode Dev Container Dotfile settings](images/dotfiles_vscode_settings.png)

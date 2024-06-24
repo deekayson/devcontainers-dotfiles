@@ -7,6 +7,7 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 rm -f ~/.aliases
 rm -f ~/.zshrc
 rm -f ~/.config/starship.toml
+rm -rf ~/.zsh
 
 # Create symlinks for the dotfiles
 ln -sf "$SCRIPT_DIR/.aliases" ~/.aliases
@@ -14,6 +15,11 @@ ln -sf "$SCRIPT_DIR/.zshrc" ~/.zshrc
 
 # Create the ~/.config directory if it doesn't exist
 mkdir -p ~/.config
+mkdir -p ~/.zsh
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.zsh/fast-syntax-highlighting
 
 # Create a symlink for the starship configuration
 ln -sf "$SCRIPT_DIR/.config/starship.toml" ~/.config/starship.toml

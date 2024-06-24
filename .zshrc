@@ -5,5 +5,9 @@
 # this can be used to set aliases for your specific environment
 [[ -f $HOME/.aliases.local ]] && source $HOME/.aliases.local
 
+source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # Starts starship
 eval "$(starship init zsh)"
