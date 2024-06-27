@@ -17,9 +17,9 @@ Currently, it contains:
 * **plugins**: [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting), [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete), and [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) plugins.
 
 All of the files are created as symbolic links.
-plugins are cloned inside `~/.zsh`.
+plugins are cloned inside `~/.zsh_addons/`.
 
-A `~/.aliases.local` file can be used to add your own project specific aliases.
+A `~/.aliases.local` file can be used to add your own project/system specific aliases.
 
 ## Installation
 
@@ -27,7 +27,22 @@ Just copy the following lines to your user settings json:
 
 ```
 {
+    "containers.dotfiles.repository": "https://github.com/matheusfvesco/devcontainers-dotfiles.git",
+    "containers.dotfiles.targetPath": "~/dotfiles",
+}
+```
+
+or if you use Remote-SSH or Remote-Tunnels:
+
+```
+{
     "remote.containers.dotfiles.repository": "https://github.com/matheusfvesco/devcontainers-dotfiles.git",
     "remote.containers.dotfiles.targetPath": "~/dotfiles",
 }
 ```
+
+## Developing
+
+To develop, you can clone the repository inside a Dev Container Volume using VS Code.
+
+To test, you can use the `./test.sh` script. It will copy the contents from `/workspaces/devcontainer-dotfiles` into your home folder and run the `install.sh` script.
