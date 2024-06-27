@@ -19,5 +19,13 @@ source $PLUGINS_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS_DIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+# Check if poetry is installed and sets up completions
+if command -v poetry &> /dev/null; then
+    [ ! -f ~/.zfunc ] && mkdir -p ~/.zfunc &> /dev/null
+    [ ! -f ~/.zfunc/_poetry ] && poetry completions zsh > ~/.zfunc/_poetry
+    fpath+=~/.zfunc
+    autoload -Uz compinit && compinit
+fi
+
 # Starts starship
 eval "$(starship init zsh)"
