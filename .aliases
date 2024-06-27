@@ -5,6 +5,11 @@ alias mkdir="mkdir -pv"
 alias ..="cd .."
 alias ~="cd ~"
 
+freeze() {
+  local filename=${1:-requirements.txt}
+  pip freeze > "$filename"
+}
+
 mkcd ()
 {
   mkdir -p -- "$1" && cd -P -- "$1"
