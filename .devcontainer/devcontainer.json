@@ -3,16 +3,7 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-
-	// When using remote-ssh to connect to a remote machine, vscode uses the local (laptop)
-	// SSH_AUTH_SOCK as a source for ssh keys, if you wish to use the remote machine credentials,
-	// we need to use bind mounts to mounts local .ssh inside the container, hoping that the 
-	// remote server ssh key is finally used... works, but really unsafe work around if more
-	// people have access to the same machine...
-	"mounts": [
-		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
-	]
+	"image": "mcr.microsoft.com/devcontainers/base:jammy"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {}
