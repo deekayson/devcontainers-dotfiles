@@ -1,6 +1,9 @@
-alias ll="ls -la"
+alias ll="ls -laF"
+alias la='ls -A'
+alias l='ls -CF'
 alias mkdir="mkdir -pv"
 alias ..="cd .."
+alias ~="cd ~"
 
 mkcd ()
 {

@@ -1,30 +1,6 @@
-# copies dotfiles
+#!/bin/bash
 
-# Get the directory of the script
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
-
-# Remove existing files if they exist
-rm -f ~/.aliases
-rm -f ~/.zshrc
-rm -f ~/.config/starship.toml
-rm -rf ~/.zsh
-
-# Create symlinks for the dotfiles
-ln -sf "$SCRIPT_DIR/.aliases" ~/.aliases
-ln -sf "$SCRIPT_DIR/.zshrc" ~/.zshrc
-
-# Create the ~/.config directory if it doesn't exist
-mkdir -p ~/.config
-mkdir -p ~/.zsh
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.zsh/fast-syntax-highlighting
-
-# Create a symlink for the starship configuration
-ln -sf "$SCRIPT_DIR/.config/starship.toml" ~/.config/starship.toml
-
-# Check if zsh is installed
+# Check if zsh is installed and do nothing if not
 if ! command -v zsh >/dev/null 2>&1; then
   echo "zsh is not installed. Please install zsh and rerun this script."
   exit 1
@@ -32,6 +8,33 @@ fi
 
 # Get the path of zsh
 ZSH_PATH=$(which zsh)
+
+PLUGINS_DIR="$HOME/.zsh_addons"
+
+# Get the directory of the script
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
+# copies dotfiles
+
+# Remove existing files if they exist
+rm -f ~/.aliases
+rm -f ~/.zshrc
+rm -f ~/.config/starship.toml
+rm -rf $PLUGINS_DIR
+
+# Create symlinks for the dotfiles
+ln -s "$SCRIPT_DIR/.aliases" ~/.aliases
+ln -s "$SCRIPT_DIR/.zshrc" ~/.zshrc
+
+# Create a symlink for the starship configuration
+ln -s "$SCRIPT_DIR/.config/starship.toml" ~/.config/starship.toml
+
+# Create the ~/.config directory if it doesn't exist
+mkdir -p ~/.config
+mkdir -p $PLUGINS_DIR
+
+git clone https://github.com/zsh-users/zsh-autosuggestions $PLUGINS_DIR/zsh-autosuggestions
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $PLUGINS_DIR/zsh-autocomplete
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting $PLUGINS_DIR/fast-syntax-highlighting
 
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
