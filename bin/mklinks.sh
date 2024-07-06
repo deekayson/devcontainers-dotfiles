@@ -1,9 +1,9 @@
 #!/bin/bash
 
 output_mount="/outputs"
-if [ ! -d "$output_mount"]; then echo "Output folder not mounted. Exiting."; exit -1 ; fi
+if [ ! -d "$output_mount" ]; then echo "Output folder not mounted. Exiting."; exit -1 ; fi
 data_mount="/data"
-if [ ! -d "$data_mount"]; then echo "Data folder not mounted. Exiting."; exit -1 ; fi
+if [ ! -d "$data_mount" ]; then echo "Data folder not mounted. Exiting."; exit -1 ; fi
 
 # Check if an argument was provided
 if [ $# -eq 1 ]; then
