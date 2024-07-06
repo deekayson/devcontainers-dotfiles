@@ -11,7 +11,7 @@
 	"mounts": [
         "source=${localEnv:HOME}/HDD-home/datasets,target=/data,type=bind,consistency=cached",
         "source=${localEnv:HOME}/HDD-home/outputs,target=/outputs,type=bind,consistency=cached"
-    ]
+    ],
 
 	// 3. Use 'runArgs' to pass arguments to the container. 
 	// run the container with all GPUs
@@ -24,7 +24,7 @@
 	// "customizations": {},
 
 	// 6. Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode",
+	"remoteUser": "vscode"
 
 	// the following commands are related to container lifecylce. More info: https://containers.dev/implementors/json_reference/#lifecycle-scripts
 	
