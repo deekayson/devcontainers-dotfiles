@@ -4,6 +4,8 @@ alias l='ls -CF'
 alias mkdir="mkdir -pv"
 alias ..="cd .."
 alias ~="cd ~"
+# cd into the project directory.
+alias pd='cd $(find /workspaces/* -maxdepth 0 -type d | head -1)'
 
 freeze() {
   local filename=${1:-requirements.txt}
