@@ -1,22 +1,48 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy"
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {}
+	// 1. Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": []
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// 2. Use 'mounts' to make a list of local directories available inside the container. More info: https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount
+	// adds mounts for datasets and outputs for testing the mklinks.sh script
+	"mounts": [
+        "source=${localEnv:HOME}/HDD-home/datasets,target=/data,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/HDD-home/outputs,target=/outputs,type=bind,consistency=cached"
+    ]
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	// 3. Use 'runArgs' to pass arguments to the container. 
+	// run the container with all GPUs
+	// "runArgs": [],
 
-	// Configure tool-specific properties.
+	// 4. Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+	// "features": {},
+
+	// 5. Configure tool-specific properties.
 	// "customizations": {},
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	// 6. Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode",
+
+	// the following commands are related to container lifecylce. More info: https://containers.dev/implementors/json_reference/#lifecycle-scripts
+	
+	// 7. Use 'initializeCommand' to run commands ON THE HOST before container is created or started.
+	// "initializeCommand": "",
+
+	// 8. Use 'onCreateCommand' to run commands INSIDE THE CONTAINER after it started for the first time.
+	// "onCreateCommand": "",
+	
+	// 9. Use 'updateContentCommand' to run commands if the root filetree have any changes, during container creation.
+	// "updateContentCommand": "",
+
+	// 10. Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "",
+
+	// 11. Use 'postStartCommand' to run a command each time the container starts successfully.
+	// "postStartCommand": "",
+	
+	// 12. Use 'postAttachCommand' to run a command each time a tool attaches to the container successfully. 
+	// "postAttachCommand": "",
 }
