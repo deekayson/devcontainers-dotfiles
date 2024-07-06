@@ -6,7 +6,8 @@ show_always = true
 aliases = { "vscode" = "matheusfvesco" }
 
 [container]
-symbol = "📦 "
+symbol = "💻"
+style = "bold red"
 
 #[status]
 #disabled = false
