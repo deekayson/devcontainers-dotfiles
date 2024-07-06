@@ -10,27 +10,36 @@ fi
 ZSH_PATH=$(which zsh)
 
 PLUGINS_DIR="$HOME/.zsh_addons"
+BIN_DIR="$HOME/bin"
 
 # Get the directory of the script
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 # copies dotfiles
 
 # Remove existing files if they exist
-rm -f ~/.aliases
-rm -f ~/.zshrc
-rm -f ~/.config/starship.toml
-rm -rf $PLUGINS_DIR
+rm -f "$HOME/.aliases"
+rm -f "$HOME/.zshrc"
+rm -f "$HOME/.config/starship.toml"
+rm -rf "$PLUGINS_DIR"
+
+# Creates root directories if they don't exist
+mkdir -p "$HOME/.config"
+mkdir -p "$PLUGINS_DIR"
 
 # Create symlinks for the dotfiles
-ln -s "$SCRIPT_DIR/.aliases" ~/.aliases
-ln -s "$SCRIPT_DIR/.zshrc" ~/.zshrc
+ln -s "$SCRIPT_DIR/.aliases" "$HOME/.aliases"
+ln -s "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
+
 
 # Create a symlink for the starship configuration
-ln -s "$SCRIPT_DIR/.config/starship.toml" ~/.config/starship.toml
+ln -s "$SCRIPT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
-# Create the ~/.config directory if it doesn't exist
-mkdir -p ~/.config
-mkdir -p $PLUGINS_DIR
+if [ -d "$BIN_DIR" ]; then 
+  echo "Bin ($BIN_DIR) directory already exists. Removing it..."
+  rm -rf "$BIN_DIR"
+fi
+# Create a symlink for the bin directory
+ln -s "$SCRIPT_DIR/bin" "$BIN_DIR"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions $PLUGINS_DIR/zsh-autosuggestions
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $PLUGINS_DIR/zsh-autocomplete

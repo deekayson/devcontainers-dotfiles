@@ -12,6 +12,7 @@ ZSH_PATH=$(which zsh)
 PLUGINS_DIR="$HOME/.zsh_addons"
 
 rm -rf $HOME/dotfiles
+rm -rf $HOME/bin
 cp -r ../devcontainers-dotfiles $HOME/dotfiles
 
 bash "$HOME/dotfiles/install.sh"
