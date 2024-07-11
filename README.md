@@ -42,6 +42,9 @@ or if you use Remote-SSH or Remote-Tunnels:
 }
 ```
 
+Or through the UI:
+![vscode UI](images/dotfiles_vscode_settings.png)
+
 ## Developing
 
 To develop, you can clone the repository inside a Dev Container Volume using VS Code.
