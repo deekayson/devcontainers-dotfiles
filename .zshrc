@@ -13,6 +13,9 @@ if [ ! -d $PLUGINS_DIR ]; then
     mkdir "$PLUGINS_DIR"
 fi
 
+# REALLY IMPORTANT FOR AUTOCOMPLETE
+setopt interactivecomments
+
 # Check if .aliases exists and sources it
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
