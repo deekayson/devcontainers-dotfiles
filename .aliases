@@ -1,21 +1,3 @@
-alias ll="ls -laF"
-alias la='ls -A'
-alias l='ls -CF'
-alias mkdir="mkdir -pv"
-alias ..="cd .."
-alias ~="cd ~"
-alias exportenv-history="conda env export --from-history > environment.yml"
-alias exportenv-complete="conda env export > environment.yml"
-alias exportenv="exportenv-history"
-# cd into the project directory.
-alias pd='cd $(find /workspaces/* -maxdepth 0 -type d | head -1)'
-
-freeze() {
-  local filename=${1:-requirements.txt}
-  pip freeze > "$filename"
-}
-
-mkcd ()
-{
-  mkdir -p -- "$1" && cd -P -- "$1"
-}
+# Aliases
+alias ls='ls --color'
+alias c='clear'
